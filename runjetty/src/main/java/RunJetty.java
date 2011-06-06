@@ -3,7 +3,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.eclipse.jetty.webapp.WebAppContext;
 
-public class JettyRun
+public class RunJetty
 {
     public static void main(String[] args) throws Exception
     {
