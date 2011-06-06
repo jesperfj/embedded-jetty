@@ -85,7 +85,7 @@
                             <addClasspath>true</addClasspath>
                             <mainClass>RunJetty</mainClass>
                             <classpathMavenRepositoryLayout>true</classpathMavenRepositoryLayout>
-                            <classpathPrefix>${user.home}/.m2/repository</classpathPrefix>
+                            <classpathPrefix>.m2/repository</classpathPrefix>
                         </manifest>
                     </archive>
                 </configuration>
