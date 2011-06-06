@@ -1,8 +1,8 @@
 <project xmlns = "http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"> 
-    <groupId>com.example</groupId> 
+    <groupId>com.heroku</groupId> 
     <version>1.0-SNAPSHOT</version> 
     <modelVersion>4.0.0</modelVersion> 
-    <artifactId>jettyrun</artifactId> 
+    <artifactId>runjetty</artifactId> 
     <properties>
         <jetty.version>7.3.1.v20110307</jetty.version>
     </properties>
@@ -78,25 +78,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.3.1</version>
-                <executions>
-                    <execution>
-                        <id>default-jar</id>
-                        <phase>none</phase>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.2</version>
-                <executions>
-                    <execution>
-                        <goals><goal>build-classpath</goal></goals>
-                        <configuration>
-                            <outputFile>${project.build.directory}/cp</outputFile>
-                        </configuration>
-                    </execution>
-                </executions>
+                <configuration>
+                    <finalName>RunJetty</finalName>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>RunJetty</mainClass>
+                            <classpathMavenRepositoryLayout>true</classpathMavenRepositoryLayout>
+                            <classpathPrefix>${user.home}/.m2/repository</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
