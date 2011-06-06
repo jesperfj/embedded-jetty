@@ -9,7 +9,7 @@
 
   <modules>
     <module>..</module>
-    <module>jettyrun</module>
+    <module>runjetty</module>
   </modules>
   
   <build>
