@@ -8,6 +8,7 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>petclinic</module>
     <module>webserver</module>
   </modules>
   
