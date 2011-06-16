@@ -2,7 +2,7 @@
     <groupId>com.heroku</groupId> 
     <version>1.0-SNAPSHOT</version> 
     <modelVersion>4.0.0</modelVersion> 
-    <artifactId>runjetty</artifactId> 
+    <artifactId>webserver</artifactId> 
     <properties>
         <jetty.version>7.3.1.v20110307</jetty.version>
         <mavenCache>${user.home}/.m2/repository</mavenCache>
@@ -85,7 +85,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.3.1</version>
                 <configuration>
-                    <finalName>RunJetty</finalName>
+                    <finalName>jetty</finalName>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
