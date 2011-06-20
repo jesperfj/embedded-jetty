@@ -9,14 +9,10 @@ public class RunJetty
     {
         Server server = new Server();
         String dburl = System.getenv("DATABASE_URL");
-        if(dburl!=null && dburl.startsWith("postgres://")) {
-        	String[] s = dburl.split("://");
-        	String[] s2 = s[1].split("@");
-        	String[] s3 = s2[0].split(":");
-        	System.setProperty("database.url","jdbc:postgresql://"+s2[1]+"?user="+s3[0]+"&password="+s3[1]);
-        	System.out.println("Detected a DATABASE_URL pointing to a postgres database. Will set the database.url Java system property to the corresponding JDBC connect URL");
-                System.out.println("Setting hibernate.dialect to org.hibernate.dialect.PostgreSQLDialect. Note that this will not override Hibernate settings in persistence.xml");
-                System.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect");
+        System.setProperty("database.url", 
+                           dburl.replaceAll("postgres://(.*):(.*)@(.*)","jdbc:postgresql://$3?user=$1&password=$2"));
+        if(dburl.startsWith("postgres")) {
+            System.setProperty("hibernate.dialect","org.hibernate.dialect.PostgreSQLDialect");
         }
         Connector connector = new SelectChannelConnector();
         connector.setPort(Integer.getInteger("jetty.port",8080).intValue());
